@@ -33,9 +33,9 @@
       <li class="divider"></li>
       <li><%= link_to "Browse Products", products_path %></li>
       <li class="divider"></li>
+      <% if customer_signed_in? %>
       <li><%= link_to "Previous Orders", orders_view_orders_path %></li>
       <li class="divider"></li>
-      <% if customer_signed_in? %>
       <li><%= link_to "Profile", edit_customer_registration_path%></li>
       <li class="divider"></li>
       <li><%= link_to "Sign Out", destroy_customer_session_path, :method => :delete%></li>
