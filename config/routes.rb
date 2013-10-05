@@ -1,5 +1,9 @@
 OnlineShopping::Application.routes.draw do
+  resources :orders, only: [:create, :destroy]
+  get "orders/view_orders"
   get "product/index"
+  
+  
   devise_for :customers
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
     @product = Product.new(user_params)
     if @product.save
     	
-    	 flash[:success] = "Product added succesfully"
+    	 flash[:notice] = "Product added succesfully"
       redirect_to(root_url)
     else
       render 'new'
@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
     
   def destroy
      Product.find(params[:id]).destroy
-     flash[:success] = "Product deleted."
+     flash[:notice] = "Product deleted."
      redirect_to(root_url)
   end
 

@@ -14,7 +14,7 @@
   	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  	<title>Shopping Portal<% content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
@@ -32,13 +32,12 @@
     <ul class="right">
       <li class="divider"></li>
       <li><%= link_to "Browse Products", products_path %></li>
-      
       <li class="divider"></li>
-      <li><%= link_to "Contact Us" %></li>
-      <li class="divider"></li>
-      <li><%= link_to "Cart" %></li>
+      <li><%= link_to "Previous Orders", orders_view_orders_path %></li>
       <li class="divider"></li>
       <% if customer_signed_in? %>
+      <li><%= link_to "Profile", edit_customer_registration_path%></li>
+      <li class="divider"></li>
       <li><%= link_to "Sign Out", destroy_customer_session_path, :method => :delete%></li>
       <% else %>
       <li>
@@ -50,11 +49,10 @@
   </div>
 </nav>
 
-  <div class="row">
-    <div class="large-8 columns">
+  
+    
      <%= yield %>
-    </div>
-  </div>
+  
     
 
     

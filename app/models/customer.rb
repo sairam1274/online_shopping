@@ -5,5 +5,6 @@ class Customer < ActiveRecord::Base
          :validatable
   validates :name, presence: true
   validates :gender, presence: true
-  validates :address, presence: true       
+  validates :address, presence: true   
+  has_many :orders    
 end

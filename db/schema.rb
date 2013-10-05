@@ -11,19 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131001193152) do
+ActiveRecord::Schema.define(version: 20131005210104) do
 
   create_table "customers", force: true do |t|
-    t.string   "email",              default: "", null: false
-    t.string   "encrypted_password", default: "", null: false
+    t.string   "email",              default: "",    null: false
+    t.string   "encrypted_password", default: "",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
     t.text     "address"
     t.string   "gender"
+    t.boolean  "admin",              default: false
   end
 
   add_index "customers", ["email"], name: "index_customers_on_email", unique: true
+
+  create_table "orders", force: true do |t|
+    t.integer  "customer_id"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "products", force: true do |t|
     t.string   "name"
