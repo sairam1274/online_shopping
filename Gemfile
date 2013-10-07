@@ -13,7 +13,7 @@ group :development, :test do
 gem 'awesome_print' , :require => 'ap'
 end
 
-gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
+gem 'jquery-datatables-rails'
 
 gem 'zurb-foundation'
 # Use SCSS for stylesheets

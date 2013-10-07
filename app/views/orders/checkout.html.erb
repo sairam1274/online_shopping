@@ -1,8 +1,35 @@
 
-Your Invoice
+<div class="row">
+<div class="large-8 columns">
+<div class="panel">
 
-Name
-<%= @product.name %>
+<h1>Your Invoice</h1>
+
+<span>
+<h3><%= @product.name %></h3>
+</span>
+<span>
 <%= @product.description %>
+</span><hr><span>
+<div> Amount(Rs) <%= @product.price %>
+</div></span>
+</div>
 
-Amount <%= @product.price %>
+
+<hr>
+
+<%= link_to "Back to shopping", root_url, class: "button" %>
+
+</div>
+<div class="large-1 columns"></div>
+<div class="large-3 columns">
+
+<h3>Your details</h3>
+
+Name: <%= current_customer.name %><br></br>
+Address: <%= current_customer.address %><hr>
+
+Not correct! <%= link_to "edit here", edit_customer_registration_path, class: "button" %>
+
+</div>
+</div>
