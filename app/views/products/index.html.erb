@@ -6,10 +6,20 @@
    </section>
    <br>
   </div>
-  <div class="large-4 columns">
-   <!--<%= render 'shared/shoppingcart' %>-->
+  <div class="large-1 columns">
   </div>
-  <hr>
+<div class="large-3 columns" id="userdetails">
+
+<h3>Your details</h3>
+
+Name: <%= current_customer.name %><br></br>
+Address: <%= current_customer.address %><hr>
+
+Not correct! <%= link_to "edit here", edit_customer_registration_path, class: "small button" %>
+
+</div>
+  
+
 </div>
 <div class="row"></div>
 
@@ -37,5 +47,6 @@
 </div>
 </div>
 </div>
-</div>
 <% end %>
+
+</div>
