@@ -4,6 +4,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  rescue_from ActionController::RoutingError, with: :render_404_page
+
+  protected
+    def render_404_page
+      render "app/error_pages/application/routing_error.html.erb", status: 404
+    end
+
+
   protected
 
   def configure_permitted_parameters
