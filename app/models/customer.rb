@@ -7,4 +7,5 @@ class Customer < ActiveRecord::Base
   validates :gender, presence: true
   validates :address, presence: true   
   has_many :orders    
+  has_one :cart
 end

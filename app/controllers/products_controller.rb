@@ -2,6 +2,15 @@ class ProductsController < ApplicationController
 	before_action :authenticate_customer!, only: [:new, :edit ]  
 	def index
   	@products = Product.all
+
+    if customer_signed_in?
+      @current_cart = Cart.find_by customer_id: @current_customer.id
+       if @current_cart = nil
+        @cart = @current_customer.build_cart
+        @cart.save
+       
+      end
+    end
   end
 
   def new
