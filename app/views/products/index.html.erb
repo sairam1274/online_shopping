@@ -10,7 +10,15 @@
   </div>
 <div class="large-3 columns" id="userdetails">
 <h3>Your cart!</h3>
-<%= current_customer.cart %>
+<% cart_id = session[:cart_id] %>
+<% @cart_products.each do |product| %>
+      
+<%= product.product_id %>
+  <% end %>      
+       
+
+
+
 <br>
 <h3>Your details</h3>
 

@@ -1,4 +1,5 @@
 OnlineShopping::Application.routes.draw do
+  
   resources :orders, only: [:create, :destroy]
   get "orders/view_orders"
   get "product/index"
@@ -18,8 +19,8 @@ OnlineShopping::Application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-     resources :products
-
+     resources :products 
+     resources :carts
   # Example resource route with options:
   #   resources :products do
   #     member do

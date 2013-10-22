@@ -3,5 +3,5 @@ class Product < ActiveRecord::Base
 	validates :description, presence: true
 	validates :price, presence: true
 	has_many :orders
-	has_many :cart_products
+	has_and_belongs_to_many :carts
 end

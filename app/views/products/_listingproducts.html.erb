@@ -29,7 +29,7 @@
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% else %>
 
-        <td><%= button_to 'Buy product', orders_path(id: product),class: "button" %></td>
+        <td><%= button_to 'Add to cart',:action => "create", :controller => "carts" , id: product.id%></td>
         <% end -%>
       </tr>
     <% end %>
