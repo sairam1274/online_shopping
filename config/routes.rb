@@ -3,7 +3,7 @@ OnlineShopping::Application.routes.draw do
   resources :orders, only: [:create, :destroy]
   get "orders/view_orders"
   get "product/index"
-  
+  post "carts/checkout"
   
   devise_for :customers
   # The priority is based upon order of creation: first created -> highest priority.

@@ -11,10 +11,15 @@
 <div class="large-3 columns" id="userdetails">
 <h3>Your cart!</h3>
 <% cart_id = session[:cart_id] %>
+<%= cart_id %>
 <% @cart_products.each do |product| %>
-      
-<%= product.product_id %>
-  <% end %>      
+
+<%= product.name %>
+ <td><%= link_to 'Remove', {:controller => "carts", :action => "destroy", :id => product.id}, method: :delete %></td>
+ <br>
+  <% end %>   
+<hr>
+ <%= button_to 'Checkout',{:action => "checkout", :controller => "carts" , id: cart_id}, class: "small button" %>  
        
 
 
