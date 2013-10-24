@@ -11,6 +11,8 @@ group :development, :test do
   gem 'sqlite3'
   # irb debugging tool
 gem 'awesome_print' , :require => 'ap'
+
+gem 'rspec-rails'
 end
 
 gem 'jquery-datatables-rails'

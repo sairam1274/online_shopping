@@ -4,17 +4,12 @@
 <div class="panel" id="homepanel">
 
 <h1>Your Invoice</h1>
-
-<span>
-<h3><%= @product.name %></h3>
-</span>
-<span>
-<%= @product.description %>
-</span><hr><span>
-<div> Amount(Rs) <%= @product.price %>
-</div></span>
-</div>
-
+<% @orders.each do |order| %>
+<td><%= order.id %></td>
+<td><%= Product.find(order.product_id).name %></td>
+<td><%= Product.find(order.product_id).price %></td>
+       
+<% end %>
 
 <hr>
 

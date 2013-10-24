@@ -7,19 +7,20 @@ class OrdersController < ApplicationController
   
 
   def create
-  	
+  	@cart = Cart.find(params[:id])
     
-   	@order = current_customer.orders.build(:product_id => params[:id])
-    if @order.save
+    @cart.products.each do |product|
+
+   	   @order = current_customer.orders.build(product_id: product.id)
+       @order.save
+
+       end
        
-       flash[:notice] = "Product added to cart"
        
-       @product = Product.find(params[:id])
-       render 'checkout'
-     else
-      flash[:notice] = "Product not added"
-      redirect_to root_url
-    end
+    Cart.find(params[:id]).destroy
+    @orders = current_customer.orders
+    render "checkout"
+     
   end
 
   
