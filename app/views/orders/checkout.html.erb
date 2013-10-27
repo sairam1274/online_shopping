@@ -4,13 +4,19 @@
 <div class="panel" id="homepanel">
 
 <h1>Your Invoice</h1>
-<% @orders.each do |order| %>
+<table>
+<tr><td>Order id</td>
+<td>Product name</td>
+<td>Product price</td></tr>
+<% @current_order.each do |order| %>
+<tr>
 <td><%= order.id %></td>
 <td><%= Product.find(order.product_id).name %></td>
 <td><%= Product.find(order.product_id).price %></td>
-       
+ </tr>    
 <% end %>
 
+ </table>
 <hr>
 
 <%= link_to "Back to shopping", root_url, class: "button" %>

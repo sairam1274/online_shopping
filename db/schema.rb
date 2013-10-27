@@ -13,6 +13,13 @@
 
 ActiveRecord::Schema.define(version: 20131023163446) do
 
+  create_table "cart_products", force: true do |t|
+    t.integer  "cart_id"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "carts", force: true do |t|
     t.integer  "customer_id"
     t.datetime "created_at"

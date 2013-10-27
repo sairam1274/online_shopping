@@ -9,18 +9,9 @@
   <div class="large-1 columns">
   </div>
 <div class="large-3 columns" id="userdetails">
-<h3>Your cart!</h3>
-<% cart_id = session[:cart_id] %>
-<%= cart_id %>
-<% @cart_products.each do |product| %>
 
-<%= product.name %>
- <td><%= link_to 'Remove', {:controller => "carts", :action => "destroy", :id => product.id}, method: :delete %></td>
- <br>
-  <% end %>   
-<hr>
- <%= button_to 'Checkout',{:action => "create", :controller => "orders" , id: cart_id}, class: "small button" %>  
-       
+<% if not current_customer.admin? %>
+<%= render 'cart' %>
 
 
 
@@ -31,7 +22,7 @@ Name: <%= current_customer.name %><br></br>
 Address: <%= current_customer.address %><hr>
 
 Not correct! <%= link_to "edit here", edit_customer_registration_path, class: "small button" %>
-
+<% end %>
 </div>
   
 
