@@ -10,13 +10,19 @@
   </div>
 <div class="large-3 columns" id="userdetails">
 
+<% if not current_customer.admin? %>
+<%= render 'cart' %>
+
+
+
+<br>
 <h3>Your details</h3>
 
 Name: <%= current_customer.name %><br></br>
 Address: <%= current_customer.address %><hr>
 
 Not correct! <%= link_to "edit here", edit_customer_registration_path, class: "small button" %>
-
+<% end %>
 </div>
   
 

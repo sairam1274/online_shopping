@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Image</th>
       <th>Price</th>
       <th>Description</th>
       <% if current_customer.admin? %>
@@ -19,6 +20,7 @@
     <% @products.each do |product| %>
       <tr>
         <td><%= product.name %></td>
+        <td><%= image_tag product.image.url(:thumb) %></td>
         <td><%= product.price %></td>
         <td><%= product.description %></td>
        
@@ -29,7 +31,7 @@
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% else %>
 
-        <td><%= button_to 'Buy product', orders_path(id: product),class: "button" %></td>
+        <td><%= button_to 'Add to cart',:action => "create", :controller => "carts" , id: product.id%></td>
         <% end -%>
       </tr>
     <% end %>

@@ -11,6 +11,8 @@ group :development, :test do
   gem 'sqlite3'
   # irb debugging tool
 gem 'awesome_print' , :require => 'ap'
+
+gem 'rspec-rails'
 end
 
 gem 'jquery-datatables-rails'
@@ -38,6 +40,12 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
+
+# image uploading 
+gem 'paperclip', "~> 3.0"
+
+# aws s3 storage
+gem 'aws-sdk'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

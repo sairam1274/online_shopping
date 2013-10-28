@@ -1,0 +1,15 @@
+<h3>Your cart!</h3>
+<% cart_id = session[:cart_id] %>
+You have <%= @cart_products.count %> product in your cart!
+<br>
+<br>
+<% @cart_products.each do |product| %>
+
+<%= product.name %>
+ <td><%= link_to 'Remove', {:controller => "carts", :action => "destroy", :id => product.id}, method: :delete %></td>
+ <br>
+  <% end %>   
+<hr>
+<% if @cart_products.count > 0 %>
+ <%= button_to 'Checkout',{:action => "create", :controller => "orders" , id: cart_id}, class: "small button" %>  
+<% end %>       
